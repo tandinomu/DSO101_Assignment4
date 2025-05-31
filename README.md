@@ -101,13 +101,5 @@ trivy image secure-app
 7. **Health checks**: Built-in health endpoint
 8. **Clean builds**: .dockerignore to exclude unnecessary files
 
-## Deliverables for Assignment
-
-Your README.md should include:
-1. Screenshots of successful Jenkins pipeline runs
-2. Screenshots of successful GitHub Actions workflow runs
-3. Docker Hub showing the pushed images
-4. Explanation of security measures implemented
-5. Instructions for running the application
 
 This implementation covers all the requirements in your assignment while following industry best practices for secure CI/CD pipelines.
