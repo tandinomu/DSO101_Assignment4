@@ -70,27 +70,17 @@ echo "dummy_api_key" > secrets/api_key.txt
 
 ![repo](./Images/repocreation.png)
 
-### Local Testing:
-```bash
-# Build the image
-docker build -t secure-app .
+## Step 9:GitHub Actions Succeeded
 
-# Run the container
-docker run -p 3000:3000 secure-app
+![bs](./Images/Buildsuccess.png)
 
-# Test the application
-curl http://localhost:3000
-curl http://localhost:3000/health
-```
+## step10:Docker image builds successfully
 
-### Security Verification:
-```bash
-# Check that the container runs as non-root
-docker run secure-app id
+![di](./Images/dockerimages.png)
 
-# Scan for vulnerabilities (if you have Trivy installed)
-trivy image secure-app
-```
+## Jenkins with docker
+Create Pipeline Job
+![jenkins](./Images/jenkins.png)
 
 ## Security Best Practices Implemented
 

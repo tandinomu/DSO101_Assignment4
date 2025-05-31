@@ -1,62 +1,44 @@
 pipeline {
     agent any
     
-    environment {
-        DOCKER_CREDS = credentials('docker-hub-creds')
-        IMAGE_NAME = 'tandinomu/secure-app'
-        IMAGE_TAG = "${BUILD_NUMBER}"
-    }
-    
     stages {
         stage('Checkout') {
             steps {
                 checkout scm
+                echo "✅ Code checked out successfully"
             }
         }
         
-        stage('Build Docker Image') {
+        stage('Build') {
             steps {
-                script {
-                    sh """
-                        docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .
-                        docker tag ${IMAGE_NAME}:${IMAGE_TAG} ${IMAGE_NAME}:latest
-                    """
-                }
+                echo "🔨 Building Docker image..."
+                sh 'docker build -t tandinomu/secure-app:${BUILD_NUMBER} .'
+                echo "✅ Docker image built successfully"
             }
         }
         
-        stage('Push to Docker Hub') {
+        stage('Test') {
             steps {
-                script {
-                    sh """
-                        echo \$DOCKER_CREDS_PSW | docker login -u \$DOCKER_CREDS_USR --password-stdin
-                        docker push ${IMAGE_NAME}:${IMAGE_TAG}
-                        docker push ${IMAGE_NAME}:latest
-                        docker logout
-                    """
-                }
+                echo "🧪 Testing Docker image..."
+                sh 'docker run --rm tandinomu/secure-app:${BUILD_NUMBER} node --version'
+                echo "✅ Docker image test passed"
             }
         }
         
-        stage('Cleanup') {
+        stage('Success') {
             steps {
-                sh """
-                    docker rmi ${IMAGE_NAME}:${IMAGE_TAG} || true
-                    docker rmi ${IMAGE_NAME}:latest || true
-                """
+                echo "🎉 Pipeline completed successfully!"
+                echo "📦 Image: tandinomu/secure-app:${BUILD_NUMBER}"
             }
         }
     }
     
     post {
-        always {
-            cleanWs()
-        }
         success {
-            echo 'Pipeline completed successfully!'
+            echo "✅ All stages completed successfully!"
         }
         failure {
-            echo 'Pipeline failed!'
+            echo "❌ Pipeline failed at some stage"
         }
     }
 }
