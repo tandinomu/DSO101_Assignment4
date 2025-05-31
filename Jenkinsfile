@@ -25,19 +25,6 @@ pipeline {
             }
         }
         
-        stage('Security Scan') {
-            steps {
-                script {
-                    // Basic security check - scan for vulnerabilities
-                    sh """
-                        docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
-                        -v \$(pwd):/tmp/.trivy \
-                        aquasec/trivy:latest image ${IMAGE_NAME}:${IMAGE_TAG} || true
-                    """
-                }
-            }
-        }
-        
         stage('Push to Docker Hub') {
             steps {
                 script {

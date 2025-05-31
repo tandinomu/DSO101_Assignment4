@@ -66,7 +66,9 @@ echo "dummy_api_key" > secrets/api_key.txt
 3. Create a new access token
 4. Use this token instead of password
 
-## Step 8: Testing
+## Step 8: Created a repo in dockerhub
+
+![repo](./Images/repocreation.png)
 
 ### Local Testing:
 ```bash
