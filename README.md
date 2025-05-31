@@ -36,22 +36,7 @@ echo "dummy_api_key" > secrets/api_key.txt
 
 #### Jenkinsfile
 
-## Step 5: GitHub Actions Workflow
-
-## Step 6: Configuration Files
-
-#### .gitignore
-
-## Step 7: Setup Instructions
-
-### For Jenkins:
-1. Install Docker plugin
-2. Add Docker Hub credentials:
-   - Go to Jenkins → Manage Jenkins → Manage Credentials
-   - Add new Username/Password credential
-   - ID: `docker-hub-creds`
-
-![dc](./Images/dcredentials.png)
+ Configuration Files-.gitignore
 
 ### For GitHub Actions:
 1. Go to the repository → Settings → Secrets and variables → Actions
@@ -66,15 +51,30 @@ echo "dummy_api_key" > secrets/api_key.txt
 3. Create a new access token
 4. Use this token instead of password
 
-## Step 8: Created a repo in dockerhub
+## Step 5: GitHub Actions Workflow
 
-![repo](./Images/repocreation.png)
-
-## Step 9:GitHub Actions Succeeded
+Build success
 
 ![bs](./Images/Buildsuccess.png)
 
-## step10:Docker image builds successfully
+
+## Step 6: Setup Instructions
+
+### For Jenkins:
+1. Install Docker plugin
+2. Add Docker Hub credentials:
+   - Go to Jenkins → Manage Jenkins → Manage Credentials
+   - Add new Username/Password credential
+   - ID: `docker-hub-creds`
+
+![dc](./Images/dcredentials.png)
+
+## Step 7: Created a repo in dockerhub
+
+![repo](./Images/repocreation.png)
+
+
+## Step 8:Docker image builds successfully
 
 ![di](./Images/dockerimages.png)
 
@@ -198,8 +198,11 @@ post {
 ## Final Working Configuration
 
 **GitHub Actions:** Successfully builds and pushes Docker images to Docker Hub
+
 **Jenkins:** Successfully runs simulation pipeline demonstrating CI/CD concepts
+
 **Docker Hub:** Contains pushed images with proper security configurations
+
 **Security:** Non-root user implementation and basic vulnerability scanning
 
 ## Conclusion
