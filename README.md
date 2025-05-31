@@ -32,13 +32,9 @@ echo "dummy_db_password" > secrets/db_password.txt
 echo "dummy_api_key" > secrets/api_key.txt
 ```
 
-## Step 4: Jenkins Pipeline
-
-#### Jenkinsfile
-
  Configuration Files-.gitignore
 
-### For GitHub Actions:
+## Step 4:For GitHub Actions:
 1. Go to the repository → Settings → Secrets and variables → Actions
 2. Added the following secrets:
    - `DOCKERHUB_USERNAME`
@@ -58,8 +54,10 @@ Build success
 ![bs](./Images/Buildsuccess.png)
 
 
-## Step 6: Setup Instructions
 
+## Step 5: Jenkins Pipeline
+
+#### Jenkinsfile
 ### For Jenkins:
 1. Install Docker plugin
 2. Add Docker Hub credentials:
@@ -69,15 +67,6 @@ Build success
 
 ![dc](./Images/dcredentials.png)
 
-## Step 7: Created a repo in dockerhub
-
-![repo](./Images/repocreation.png)
-
-
-## Step 8:Docker image builds successfully
-
-![di](./Images/dockerimages.png)
-
 ## Jenkins with docker
 Create Pipeline Job
 ![jenkins](./Images/jenkins.png)
@@ -86,6 +75,14 @@ Jenkins pipeline success
 
 ![js](./Images/jenkinsbuild.png)
 
+## Step 7: Created a repo in dockerhub
+
+![repo](./Images/repocreation.png)
+
+
+## Step 8:Docker image builds successfully
+
+![di](./Images/dockerimages.png)
 
 # Challenges Encountered and Solutions
 
